@@ -666,6 +666,7 @@ BASE_LAYOUT = """
 </html>
 """
 
+# --- NEW STYLISH GLASSMORPHISM TRICOLOR LOGIN PAGE MATCHING SCREENSHOT ---
 LOGIN_HTML = """
 <!DOCTYPE html>
 <html lang="hi">
@@ -686,53 +687,128 @@ LOGIN_HTML = """
             justify-content: center;
             overflow: hidden;
             color: #fff;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+            z-index: 100;
+        }
+        .login-wrapper {
+            display: flex;
+            width: 1100px;
+            max-width: 95%;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+        .login-left-content {
+            flex: 1;
+            padding-right: 50px;
+        }
+        .login-left-content h1 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 2px;
+            background: linear-gradient(90deg, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+        .login-left-content h4 {
+            color: #60a5fa;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .login-left-content p {
+            color: #94a3b8;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+        .features-grid {
+            display: flex;
+            gap: 15px;
+        }
+        .feature-box {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 10px;
+            border-radius: 14px;
+            width: 115px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s;
+        }
+        .feature-box:hover {
+            transform: translateY(-3px);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        .feature-box i {
+            color: #3b82f6;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        .feature-box span {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #e2e8f0;
         }
         .login-card {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
             color: #1E293B;
             width: 440px;
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
             position: relative;
-            z-index: 10;
         }
         .login-logo {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #2563EB, #1D4ED8);
+            background: linear-gradient(135deg, #2563EB, #7c3aed);
             color: white;
             font-size: 28px;
             font-weight: bold;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 14px;
-            margin: 0 auto 15px auto;
-            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+            border-radius: 16px;
+            margin: 0 auto 12px auto;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
         }
         .form-control {
-            border-radius: 10px;
-            padding: 12px 15px 12px 42px;
+            border-radius: 12px;
+            padding: 12px 15px 12px 44px;
             border: 1px solid #CBD5E1;
             font-size: 14px;
+            background-color: #f8fafc;
         }
         .form-control:focus {
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
             border-color: #2563EB;
+            background-color: #ffffff;
         }
         .input-group-icon {
             position: absolute;
-            left: 15px;
-            top: 40px;
+            left: 16px;
+            top: 42px;
             color: #64748B;
             z-index: 20;
         }
         .btn-signin {
-            background: linear-gradient(135deg, #2563EB, #1D4ED8);
+            background: linear-gradient(135deg, #2563EB, #7c3aed);
             border: none;
             border-radius: 12px;
-            padding: 12px;
+            padding: 13px;
             font-weight: bold;
             color: white;
             width: 100%;
@@ -741,66 +817,90 @@ LOGIN_HTML = """
         }
         .btn-signin:hover {
             transform: translateY(-2px);
-            background: linear-gradient(135deg, #1D4ED8, #1E40AF);
+            background: linear-gradient(135deg, #1d4ed8, #6d28d9);
         }
-        .bg-text-left {
+        .footer-tag {
             position: absolute;
+            bottom: 30px;
             left: 60px;
-            top: 120px;
-            color: rgba(255, 255, 255, 0.25);
-            font-weight: 700;
-            letter-spacing: 4px;
-            font-size: 15px;
-            line-height: 1.8;
-            pointer-events: none;
-        }
-        .bg-text-right {
-            position: absolute;
-            right: 60px;
-            bottom: 80px;
-            color: rgba(255, 255, 255, 0.25);
-            font-weight: 600;
-            letter-spacing: 2px;
-            font-size: 12px;
-            line-height: 1.8;
-            text-align: right;
-            pointer-events: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+            font-size: 17px;
+            letter-spacing: 1px;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
-    <div class="bg-text-left">
-        SECURE<br>SIMPLE<br>SMART<br>TOGETHER
+    <div class="footer-tag">
+        Stronger Democracy, Brighter Tomorrow
     </div>
 
-    <div class="login-card">
-        <div class="login-logo">M</div>
-        <div class="text-center mb-4">
-            <h3 class="fw-bold text-dark mb-1">My Workspace</h3>
-            <p class="text-muted small">Election Office Cloud Portal</p>
+    <div class="login-wrapper">
+        <div class="login-left-content d-none d-lg-block">
+            <h1>My Workspace</h1>
+            <h4>EMS Delhi</h4>
+            <p>Secure &bull; Simple &bull; Smart &bull; Together<br>Powering a transparent, efficient and inclusive<br>electoral process for a stronger democracy.</p>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Secure</span>
+                    <small style="font-size: 9px; color: #94a3b8;">Your data, priority</small>
+                </div>
+                <div class="feature-box">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Simple</span>
+                    <small style="font-size: 9px; color: #94a3b8;">Easy access</small>
+                </div>
+                <div class="feature-box">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Smart</span>
+                    <small style="font-size: 9px; color: #94a3b8;">Tech driven</small>
+                </div>
+                <div class="feature-box">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Together</span>
+                    <small style="font-size: 9px; color: #94a3b8;">For tomorrow</small>
+                </div>
+            </div>
         </div>
 
-        {% if error %}
-        <div class="alert alert-danger py-2 small text-center fw-bold rounded-3">{{ error }}</div>
-        {% endif %}
-
-        <form method="POST">
-            <div class="mb-3 position-relative">
-                <label class="form-label small fw-bold text-secondary">Username / Email</label>
-                <i class="fa-solid fa-user input-group-icon"></i>
-                <input type="text" name="username" class="form-control" placeholder="Username / Email" required>
+        <div class="login-card">
+            <div class="login-logo">M</div>
+            <div class="text-center mb-4">
+                <h3 class="fw-bold text-dark mb-1">Welcome Back</h3>
+                <p class="text-muted small">EMS Delhi</p>
             </div>
-            <div class="mb-4 position-relative">
-                <label class="form-label small fw-bold text-secondary">Password</label>
-                <i class="fa-solid fa-lock input-group-icon"></i>
-                <input type="password" name="password" class="form-control" placeholder="Password" required>
-            </div>
-            <button type="submit" class="btn btn-signin"><i class="fa-solid fa-arrow-right-to-bracket me-2"></i> Sign In</button>
-        </form>
-    </div>
 
-    <div class="bg-text-right">
-        A BETTER<br>WORKSPACE<br>FOR A BRIGHTER<br>TOMORROW
+            {% if error %}
+            <div class="alert alert-danger py-2 small text-center fw-bold rounded-3">{{ error }}</div>
+            {% endif %}
+
+            <form method="POST">
+                <div class="mb-3 position-relative">
+                    <label class="form-label small fw-bold text-secondary">Username / Email</label>
+                    <i class="fa-solid fa-user input-group-icon"></i>
+                    <input type="text" name="username" class="form-control" placeholder="Enter your username or email" required>
+                </div>
+                <div class="mb-3 position-relative">
+                    <label class="form-label small fw-bold text-secondary">Password</label>
+                    <i class="fa-solid fa-lock input-group-icon"></i>
+                    <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-4 small">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="remember">
+                        <label class="form-check-label text-muted" for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="text-decoration-none text-primary fw-bold">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-signin mb-3"><i class="fa-solid fa-arrow-right-to-bracket me-2"></i> Sign In</button>
+            </form>
+            <div class="text-center mt-3">
+                <small class="text-muted">Need help? <a href="#" class="text-decoration-none fw-bold">Contact Support</a></small>
+            </div>
+        </div>
     </div>
 </body>
 </html>
@@ -1144,7 +1244,7 @@ WHATSAPP_HTML = BASE_LAYOUT.replace('{% block content %}{% endblock %}', """
             <i class="fa-brands fa-whatsapp" style="font-size: 70px;"></i>
         </div>
         <h3 class="fw-bold text-dark mb-2">WhatsApp Web Launcher</h3>
-        <p class="text-muted small mb-4">Click below to open WhatsApp Web securely in a new tab. Once you scan the QR code, your login is remembered permanently in your browser.</p>
+        <p class="text-muted small mb-4">Due to WhatsApp security policies, it cannot be displayed inside the portal iframe. Click below to open WhatsApp Web securely in a new tab. Once you scan the QR code, your login is remembered permanently in your browser.</p>
         <a href="https://web.whatsapp.com" target="_blank" class="btn btn-success btn-lg fw-bold px-5 py-3 shadow-sm" style="border-radius: 12px;">
             <i class="fa-brands fa-whatsapp me-2 fs-4"></i> Open WhatsApp Web
         </a>
