@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.secret_key = "election_office_secret_key_change_this"
 
 # Firebase Initialization
-CRED_PATH = "/etc/secrets/serviceAccountKey.json"
+CRED_PATH = os.path.join(os.path.dirname(__file__), "serviceAccountKey.json")
 if not firebase_admin._apps:
     if os.path.exists(CRED_PATH):
         try:
@@ -22,7 +22,7 @@ if not firebase_admin._apps:
 
 db = firestore.client() if firebase_admin._apps else None
 
-# --- MODERN WEB LAYOUT WITH DIRECT WHATSAPP LAUNCHER BUTTON ---
+# --- MODERN WEB LAYOUT WITH WHATSAPP LAUNCHER & PERSISTENT LOCK ---
 BASE_LAYOUT = """
 <!DOCTYPE html>
 <html lang="hi">
@@ -1137,14 +1137,14 @@ EXCEL_EDITOR_HTML = BASE_LAYOUT.replace('{% block content %}{% endblock %}', """
     </div>
 """)
 
-# --- WHATSAPP LAUNCHER PAGE WITH DIRECT OPEN BUTTON ---
+# --- WHATSAPP LAUNCHER PAGE TEMPLATE ---
 WHATSAPP_HTML = BASE_LAYOUT.replace('{% block content %}{% endblock %}', """
     <div class="card-box p-5 bg-white text-center shadow-sm" style="max-width: 600px; margin: 50px auto;">
         <div class="mb-4 text-success fs-1">
             <i class="fa-brands fa-whatsapp" style="font-size: 70px;"></i>
         </div>
         <h3 class="fw-bold text-dark mb-2">WhatsApp Web Launcher</h3>
-        <p class="text-muted small mb-4">Click below to open WhatsApp Web in a new secure tab. Your login state and chat history will remain securely remembered in your browser.</p>
+        <p class="text-muted small mb-4">Click below to open WhatsApp Web securely in a new tab. Once you scan the QR code, your login is remembered permanently in your browser.</p>
         <a href="https://web.whatsapp.com" target="_blank" class="btn btn-success btn-lg fw-bold px-5 py-3 shadow-sm" style="border-radius: 12px;">
             <i class="fa-brands fa-whatsapp me-2 fs-4"></i> Open WhatsApp Web
         </a>
@@ -2238,4 +2238,4 @@ def logout():
     return redirect(url_for("login"))
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)p
+    app.run(debug=True, port=5000)
